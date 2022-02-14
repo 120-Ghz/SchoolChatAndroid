@@ -1,7 +1,6 @@
 // ignore_for_file: no_logic_in_create_state, avoid_print
 import 'package:flutter/material.dart';
-import 'chats.dart';
-import 'chat_view.dart';
+import 'txt_for_icon.dart';
 
 class ChatInfo extends StatefulWidget {
   int? id;

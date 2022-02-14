@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'date_format.dart';
 import 'socket_io_manager.dart';
 import 'models.dart';
-import 'chats.dart';
 import 'chat_info.dart';
+import 'txt_for_icon.dart';
 
 class ChatView extends StatefulWidget {
   int id = 0;

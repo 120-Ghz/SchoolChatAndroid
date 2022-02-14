@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print, empty_catches
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/auth.dart';
 import 'editprofile.dart';
@@ -8,35 +6,7 @@ import 'socket_io_manager.dart';
 import 'models.dart';
 import 'date_format.dart';
 import 'cut_last_msg.dart';
-
-String textForChatIcon(String text) {
-  String result = "";
-  if (text.split(" ").length >= 2) {
-    try {
-      if (text.split(" ")[0].length == 3 && text.split(" ").length >= 2) {
-        return text.split(" ")[0][0].toUpperCase() +
-            text.split(" ")[0][1].toUpperCase() +
-            text.split(" ")[1][0].toUpperCase();
-      }
-    } catch (e) {}
-    try {
-      result += int.parse(text.split(" ")[0][0]).toString();
-      try {
-        result += int.parse(text.split(" ")[0][1]).toString();
-        try {
-          result += text.split(" ")[1][0].toString().toUpperCase();
-        } catch (e) {}
-      } catch (e) {}
-    } catch (e) {
-      result += text.split(" ")[0][0].toUpperCase();
-      result += text.split(" ")[1][0].toUpperCase();
-    }
-  }
-  if (text.split(" ").length == 1) {
-    result += text[0].toUpperCase();
-  }
-  return result;
-}
+import 'txt_for_icon.dart';
 
 class Chats extends StatefulWidget {
   const Chats({Key? key}) : super(key: key);
@@ -128,19 +98,6 @@ class ChatsState extends State<Chats> {
     return true;
   }
 
-  List removeSame(List mass) {
-    for (int i = 0; i < mass.length; i++) {
-      for (int j = i + 1; j < mass.length; j++) {
-        if (mass.length > 1) {
-          if (mass[i] == mass[j]) {
-            mass.removeAt(i);
-          }
-        }
-      }
-    }
-    return mass;
-  }
-
   List fillAllNames(List chatDatas) {
     List allNames = [];
     for (int i = 0; i < chatDatas.length; i++) {
@@ -162,7 +119,6 @@ class ChatsState extends State<Chats> {
         currNames.add(addedNames[i]);
       }
     }
-    ScrollController _scrollController = ScrollController();
     print('chatDatas:');
     print(chatDatas);
     print(currNames);
@@ -218,7 +174,6 @@ class ChatsState extends State<Chats> {
                                               BorderRadius.circular(35.0)),
                                       fillColor: Colors.white,
                                       filled: true))),
-                          // Spacer(),
                           Container(
                               padding: EdgeInsets.only(
                                   top: MediaQuery.of(context).size.height / 65),
@@ -311,7 +266,6 @@ class ChatsState extends State<Chats> {
         height: MediaQuery.of(context).size.height / 12,
         child: TextField(
           onChanged: (text) {
-            print(text);
             searchText = text;
             update();
           },
