@@ -1,13 +1,9 @@
-// ignore_for_file: prefer_const_constructors
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models.dart';
 import 'chats.dart';
 import 'sign_up_page.dart';
 import 'socket_io_manager.dart';
 import 'package:dbcrypt/dbcrypt.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class Auth extends StatefulWidget {
   const Auth({Key? key}) : super(key: key);
@@ -69,7 +65,6 @@ class AuthState extends State<Auth> {
   @override
   Widget build(BuildContext context) {
     auth_recieve(authDataHandler);
-
     Text auth = Text("Авторизация",
         textDirection: TextDirection.ltr,
         style: TextStyle(
@@ -155,25 +150,25 @@ class AuthState extends State<Auth> {
                     borderRadius: BorderRadius.circular(35.0)),
                 fillColor: checkpassword(),
                 filled: true)));
-    Opacity ifNothing = Opacity(
+    Opacity ifNothing = const Opacity(
         opacity: 1,
         child: Text(
           "Введите логин и пароль",
           style: TextStyle(color: Colors.red, fontFamily: "Helvetica"),
         ));
-    Opacity ifNoLogin = Opacity(
+    Opacity ifNoLogin = const Opacity(
         opacity: 1,
         child: Text(
           "Введите логин и пароль",
           style: TextStyle(color: Colors.red, fontFamily: "Helvetica"),
         ));
-    Opacity ifNoPassword = Opacity(
+    Opacity ifNoPassword = const Opacity(
         opacity: 1,
         child: Text(
           "Введите логин и пароль",
           style: TextStyle(color: Colors.red, fontFamily: "Helvetica"),
         ));
-    Opacity changer = Opacity(
+    Opacity changer = const Opacity(
       opacity: 0,
     );
 
@@ -197,19 +192,19 @@ class AuthState extends State<Auth> {
           },
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(35.0)),
+              borderRadius: const BorderRadius.all(Radius.circular(35.0)),
               boxShadow: [
                 BoxShadow(
                   color: Colors.purple.shade700.withOpacity(0.6),
                   spreadRadius: 8,
                   blurRadius: 30,
-                  offset: Offset(0, 10), // changes position of shadow
+                  offset: const Offset(0, 10), // changes position of shadow
                 ),
               ],
             ),
             width: MediaQuery.of(context).size.width / 4,
             height: MediaQuery.of(context).size.height / 16,
-            child: Center(
+            child: const Center(
               child: Text(
                 'Войти',
                 style: TextStyle(
@@ -231,7 +226,7 @@ class AuthState extends State<Auth> {
       onPressed: () {},
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(35.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(35.0)),
           boxShadow: [
             BoxShadow(
               color: Colors.purple.shade700.withOpacity(0.6),
@@ -243,7 +238,7 @@ class AuthState extends State<Auth> {
         ),
         width: MediaQuery.of(context).size.width / 3.4,
         height: MediaQuery.of(context).size.height / 16,
-        child: Center(
+        child: const Center(
           child: Text(
             'Авторизация',
             style: TextStyle(
@@ -255,7 +250,7 @@ class AuthState extends State<Auth> {
         onPrimary: Colors.black87,
         primary: Colors.purple[700],
         // minimumSize: Size(, 36),
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(30)),
         ),
@@ -326,17 +321,18 @@ class AuthState extends State<Auth> {
                     Colors.yellow.shade300,
                   ],
                 )),
-                child: Column(children: <Widget>[
-                  Spacer(),
-                  auth,
-                  Spacer(),
-                  enterlogin,
-                  enterpassword,
-                  changer,
-                  signIn,
-                  Spacer(),
-                  inup,
-                ] //child: test,
-                    ))));
+                child: Column(
+                  children: <Widget>[
+                    const Spacer(),
+                    auth,
+                    const Spacer(),
+                    enterlogin,
+                    enterpassword,
+                    changer,
+                    signIn,
+                    const Spacer(),
+                    inup,
+                  ],
+                ))));
   }
 }

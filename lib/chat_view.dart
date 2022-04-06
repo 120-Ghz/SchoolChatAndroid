@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print, no_logic_in_create_state, non_constant_identifier_names
-
 import 'package:flutter/material.dart';
 import 'date_format.dart';
 import 'socket_io_manager.dart';
@@ -101,8 +99,6 @@ class ChatViewState extends State<ChatView> {
             data[i][0]["phone"] ?? "",
             data[i][0]["picture_url"] ?? ""));
       }
-      print('chatUsers:');
-      print(chatUsers);
       loaded = true;
     }
 
@@ -202,9 +198,9 @@ class ChatViewState extends State<ChatView> {
                     child: Text(
                   textForChatIcon(name),
                   style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontFamily: "Helvetica"),
                 )))
           ],
         ),
@@ -232,9 +228,7 @@ class ChatViewState extends State<ChatView> {
           (Text(
             '  Чаты  ',
             style: TextStyle(
-              fontSize: 17,
-              color: Colors.blue[800],
-            ),
+                fontSize: 17, color: Colors.blue[800], fontFamily: "Helvetica"),
           ))
         ]));
     final myController = TextEditingController();
@@ -250,9 +244,8 @@ class ChatViewState extends State<ChatView> {
             contentPadding: const EdgeInsets.all(10),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(35.0)),
-            hintStyle: const TextStyle(
-              color: Colors.black,
-            ),
+            hintStyle:
+                const TextStyle(color: Colors.black, fontFamily: "Helvetica"),
             hintText: 'Сообщение',
             fillColor: Colors.grey,
             filled: true,

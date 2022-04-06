@@ -78,7 +78,6 @@ class ChatsState extends State<Chats> {
     print(chatinfo);
     for (int o = 0; o < chatinfo.length; o++) {
       fillChats2(chatinfo[o]);
-      print("proshlo");
     }
   }
 
@@ -119,9 +118,8 @@ class ChatsState extends State<Chats> {
         currNames.add(addedNames[i]);
       }
     }
-    print('chatDatas:');
+
     print(chatDatas);
-    print(currNames);
 
     TextButton plus = TextButton(
         onPressed: () {
@@ -134,7 +132,6 @@ class ChatsState extends State<Chats> {
                     borderRadius: BorderRadius.all(Radius.circular(24.0)),
                     side: BorderSide(width: 2, color: Colors.purple),
                   ),
-                  // padding: const EdgeInsets.all(16.0),
                   child: SizedBox(
                       height: MediaQuery.of(context).size.height / 5,
                       child: Column(
@@ -190,7 +187,8 @@ class ChatsState extends State<Chats> {
                                   } else {
                                     final snackBar = SnackBar(
                                       content: const Text(
-                                          'Некорректное название чата'),
+                                        'Некорректное название чата',
+                                      ),
                                       action: SnackBarAction(
                                         label: 'Ок',
                                         onPressed: () {

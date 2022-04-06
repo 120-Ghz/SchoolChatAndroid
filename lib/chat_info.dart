@@ -54,9 +54,9 @@ class ChatInfoState extends State<ChatInfo> {
               (Text(
                 ' Назад ',
                 style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.blue[400],
-                ),
+                    fontSize: 17,
+                    color: Colors.blue[400],
+                    fontFamily: "Helvetica"),
               ))
             ])));
 
@@ -76,9 +76,9 @@ class ChatInfoState extends State<ChatInfo> {
                     child: Text(
                   textForChatIcon(name),
                   style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 43,
-                  ),
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontFamily: "Helvetica"),
                 )))
           ],
         ),
@@ -142,10 +142,6 @@ class ChatInfoState extends State<ChatInfo> {
       Column infopage = Column(
         children: <Widget>[
           upper,
-          // SizedBox(
-          //   width: MediaQuery.of(context).size.width,
-          //   height: MediaQuery.of(context).size.height / 35,
-          // )
         ],
       );
       try {
@@ -158,8 +154,6 @@ class ChatInfoState extends State<ChatInfo> {
               height: MediaQuery.of(context).size.height / 15,
               child: Row(children: <Widget>[
                 Container(
-                  // padding: EdgeInsets.only(
-                  //     left: MediaQuery.of(context).size.width / 5),
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
@@ -204,11 +198,6 @@ class ChatInfoState extends State<ChatInfo> {
             ],
           )),
           child: ListView(children: <Widget>[createUsers()])),
-
-      // Container(
-      //     height: MediaQuery.of(context).size.height / 1.8,
-      //     child: ListView(children: <Widget>[test])),
-
       backgroundColor: Colors.grey[300],
     ));
   }
